@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image} from "react-native";
+import Logo from '../assets/app-logo.png'
 
 const Home = () => {
     return (
         /* default react native components (View & Text) */
         <View style={styles.container}>
+            <Image source={Logo} style={styles.img} />
 
             {/* dynamically change the style of the view by using css class rule */}
             <Text style={styles.title}>My First React-Native</Text>
@@ -19,12 +21,16 @@ export default Home
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
+    },
+    img: {
+        marginVertical: 20,
+        width: 100,
+        height: 100,
     }
 })
