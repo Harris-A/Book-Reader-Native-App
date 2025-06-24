@@ -1,18 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {StyleSheet, Text, useColorScheme, View} from 'react-native'
 import { Stack } from 'expo-router'
+import { COLORS } from "../constants/colours";
+import { StatusBar } from 'expo-status-bar';
 
 const RootLayout = () => {
+    const colorScheme = useColorScheme()
+    // @ts-ignore
+    const theme = COLORS[colorScheme] ?? COLORS.light
     return (
-        /* applies native stack navigator on app */
-        <Stack screenOptions={{
-            headerStyle: { backgroundColor: '#f4511e' },
-            headerTintColor: '#fff',
-            headerTitleStyle: { fontWeight: 'bold' },
-        }}>
-            <Stack.Screen name="index" options={{ title: 'Home' }} />
-            <Stack.Screen name="about" options={{ title: 'About' }} />
-            <Stack.Screen name="contact" options={{ title: 'Contact' }} />
-        </Stack>
+        <>
+            <StatusBar style="light" />
+            <Stack screenOptions={{
+                headerStyle: { backgroundColor: theme.navBackground },
+                headerTintColor: '#fff',
+                headerTitleStyle: theme.title,
+            }}>
+                <Stack.Screen name="index" options={{ title: 'Home' }} />
+                <Stack.Screen name="about" options={{ title: 'About' }} />
+                <Stack.Screen name="contact" options={{ title: 'Contact' }} />
+            </Stack>
+        </>
     )
 }
 
