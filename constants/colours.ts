@@ -1,25 +1,25 @@
 export const COLORS = {
-    primary: '#f4511e',   // Vibrant orange
-    secondary: '#16a085', // Teal green
-    warning: '#cc475a',   // Deep rose
+    primary: '#ff6b3e',   // Vibrant but soft orange
+    secondary: '#20c997', // Elegant teal green
+    warning: '#e63946',   // Refined red tone
 
     dark: {
-        text: '#e5e5e5',
+        text: '#20c997',
         title: '#ffffff',
-        background: '#1c1b23',
-        navBackground: '#19181f',
-        iconColor: '#cccccc',
-        iconColorFocused: '#f4511e', // Highlighted using primary
-        uiBackground: '#2a2833',
+        background: '#121212',         // Deep gray-black
+        navBackground: '#145c52',      // Slightly lighter than background
+        iconColor: '#bbbbbb',
+        iconColorFocused: '#ff6b3e',
+        uiBackground: '#1c1c1c',       // UI containers: slightly elevated feel
     },
 
     light: {
-        text: '#1a1a1a',
+        text: '#2d2d2d',               // Softer than black, easier on eyes
         title: '#111111',
-        background: '#f5f5f5',
-        navBackground: '#f4511e',
-        iconColor: '#333333',
-        iconColorFocused: '#ffffff',
-        uiBackground: '#ffffff',
+        background: '#f2f2f2',         // Warm gray, avoids glare of pure white
+        navBackground: '#20c997',      // Clean for header/nav
+        iconColor: '#555555',
+        iconColorFocused: '#ff6b3e',
+        uiBackground: '#ffffff',       // White for card-like sections
     },
 }
