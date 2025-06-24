@@ -6,6 +6,7 @@ import Logo from '../assets/app-logo-light.png'
 // themed components
 import ThemedView from "../components/ThemedView";
 import ThemedLogo from "../components/ThemedLogo";
+import ThemedText from "../components/ThemedText";
 
 const Home = () => {
     return (
@@ -14,13 +15,22 @@ const Home = () => {
         <ThemedView style={styles.container}>
             <ThemedLogo style={styles.img} />
 
-            <Text style={styles.title}>My First React-Native</Text>
+            <ThemedText style={styles.title} title={true}>
+                My First React-Native
+            </ThemedText>
 
             {/* inline css */}
-            <Text style={{marginTop: 10, marginBottom: 30 }}>Reading List App</Text>
+            <ThemedText
+                style={{marginTop: 10, marginBottom: 30 }}>
+                Reading List App
+            </ThemedText>
 
-            <Link href="/about" style={styles.link}>About Page</Link>
-            <Link href="/contact" style={styles.link}>Contact Page</Link>
+            <Link href="/login" style={styles.link}>
+                <ThemedText>Login</ThemedText>
+            </Link>
+            <Link href="/register" style={styles.link}>
+                <ThemedText>Register</ThemedText>
+            </Link>
         </ThemedView>
     )
 }
