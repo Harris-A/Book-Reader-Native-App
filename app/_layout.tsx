@@ -16,8 +16,8 @@ const RootLayout = () => {
                 headerTitleStyle: theme.title,
             }}>
                 <Stack.Screen name="index" options={{ title: 'Home' }} />
-                <Stack.Screen name="about" options={{ title: 'About' }} />
-                <Stack.Screen name="contact" options={{ title: 'Contact' }} />
+                <Stack.Screen name="(auth)/login" options={{ title: 'Account Login' }} />
+                <Stack.Screen name="(auth)/register" options={{ title: 'Account Registration' }} />
             </Stack>
         </>
     )
