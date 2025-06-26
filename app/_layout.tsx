@@ -9,15 +9,14 @@ const RootLayout = () => {
     const theme = COLORS[colorScheme] ?? COLORS.light
     return (
         <>
-            <StatusBar style="light" />
+            <StatusBar style="auto" />
             <Stack screenOptions={{
                 headerStyle: { backgroundColor: theme.navBackground },
-                headerTintColor: '#fff',
-                headerTitleStyle: theme.title,
+                headerTintColor: theme.title,
             }}>
                 <Stack.Screen name="index" options={{ title: 'Home' }} />
-                <Stack.Screen name="(auth)/login" options={{ title: 'Account Login' }} />
-                <Stack.Screen name="(auth)/register" options={{ title: 'Account Registration' }} />
+                <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+                <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
             </Stack>
         </>
     )
