@@ -1,4 +1,4 @@
-import {StyleSheet, Text,} from "react-native";
+import {Pressable, StyleSheet, Text,} from "react-native";
 import {Link} from "expo-router";
 // @ts-ignore
 import Logo from '../assets/app-logo-light.png'
@@ -7,6 +7,8 @@ import Logo from '../assets/app-logo-light.png'
 import ThemedView from "../components/ThemedView";
 import ThemedLogo from "../components/ThemedLogo";
 import ThemedText from "../components/ThemedText";
+import Spacer from "../components/spacer";
+import ThemedButton from "../components/ThemedButton";
 
 const Home = () => {
     return (
@@ -19,18 +21,28 @@ const Home = () => {
                 My First React-Native
             </ThemedText>
 
-            {/* inline css */}
-            <ThemedText
-                style={{marginTop: 10, marginBottom: 30 }}>
+            <Spacer />
+
+            <ThemedText>
                 Reading List App
             </ThemedText>
 
-            <Link href="/login" style={styles.link}>
-                <ThemedText>Login</ThemedText>
-            </Link>
-            <Link href="/register" style={styles.link}>
-                <ThemedText>Register</ThemedText>
-            </Link>
+            <Spacer />
+
+            <Spacer />
+
+
+            <ThemedButton>
+                <Link href="/login">
+                    <ThemedText>Login</ThemedText>
+                </Link>
+            </ThemedButton>
+
+            <ThemedButton>
+                <Link href="/register">
+                    <ThemedText>Register</ThemedText>
+                </Link>
+            </ThemedButton>
         </ThemedView>
     )
 }
@@ -52,8 +64,4 @@ const styles = StyleSheet.create({
         width: 150,
         height: 150,
     },
-    link: {
-        marginVertical: 10,
-        borderBottomWidth: 1
-    }
 })
