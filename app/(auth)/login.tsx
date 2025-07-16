@@ -1,4 +1,5 @@
-import {StyleSheet, Pressable, Text} from "react-native";
+import {StyleSheet, Pressable, Text, TextInput} from "react-native";
+import { useState } from "react";
 
 // themed components
 import ThemedView from "../../components/ThemedView";
@@ -7,10 +8,16 @@ import {Link} from "expo-router";
 import ThemedButton from "../../components/ThemedButton";
 import Spacer from "../../components/spacer";
 
+// Themed components
+import ThemedTextInput from "../../components/ThemedTextInput";
+
 const login = () => {
 
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     const handleSubmit = () => {
-        console.log('login form submitted')
+        console.log('login form submitted', email, password)
     }
 
     return (
@@ -21,6 +28,20 @@ const login = () => {
             </ThemedText>
 
             <Spacer />
+
+            <ThemedTextInput
+                placeholder='Email'
+                style={{width: '80%', marginBottom: 10}}
+                keyboardType="email-address"
+                onChangeText={setEmail}
+                value={email}
+            />
+            <ThemedTextInput
+                placeholder='Password'
+                style={{width: '80%', marginBottom: 10}}
+                onChangeText={setPassword}
+                value={password}
+            />
 
             <ThemedButton onPress={handleSubmit}>
                 <Text>Login</Text>
