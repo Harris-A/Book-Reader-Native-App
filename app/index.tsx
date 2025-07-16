@@ -18,13 +18,13 @@ const Home = () => {
             <ThemedLogo style={styles.img} />
 
             <ThemedText style={styles.title} title={true}>
-                My First React-Native
+                CozyReader
             </ThemedText>
 
             <Spacer />
 
             <ThemedText>
-                Reading List App
+                My First Reading List App
             </ThemedText>
 
             <Spacer />
