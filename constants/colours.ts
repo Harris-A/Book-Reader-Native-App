@@ -24,7 +24,7 @@ export const COLORS = {
         navBackground: '#008080',    // Primary accent bar
         iconColor: '#4a4a4a',        // Neutral dark gray
         iconColorFocused: '#ffffff', // White when active on teal
-        uiBackground: '#ffffff',     // Cards or containers
+        uiBackground: '#ececec',     // Cards or containers
         borderColor: '#e0e0e0',      // For dividers/cards
         highlight: '#e6f7f7',        // Subtle background for selection/highlight
     }
