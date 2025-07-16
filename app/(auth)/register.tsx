@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable, Text} from "react-native";
+import { StyleSheet, Text} from "react-native";
 
 // themed components
 import ThemedView from "../../components/ThemedView";
@@ -6,11 +6,15 @@ import ThemedText from "../../components/ThemedText";
 import { Link } from "expo-router";
 import ThemedButton from "../../components/ThemedButton";
 import Spacer from "../../components/spacer";
+import ThemedTextInput from "../../components/ThemedTextInput";
+import {useState} from "react";
 
 const register = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const handleSubmit = () => {
-        console.log('register form submitted')
+        console.log('register form submitted', email, password)
     }
 
     return (
@@ -21,6 +25,20 @@ const register = () => {
             </ThemedText>
 
             <Spacer />
+
+            <ThemedTextInput
+                placeholder='Email'
+                style={{width: '80%', marginBottom: 10}}
+                keyboardType="email-address"
+                onChangeText={setEmail}
+                value={email}
+            />
+            <ThemedTextInput
+                placeholder='Password'
+                style={{width: '80%', marginBottom: 10}}
+                onChangeText={setPassword}
+                value={password}
+            />
 
             <ThemedButton onPress={handleSubmit}>
                 <Text>Register</Text>
