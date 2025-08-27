@@ -1,23 +1,32 @@
 import {StyleSheet, Pressable, Text, TextInput} from "react-native";
 import { useState } from "react";
+import { useUser } from '../../hooks/userUser';
 
-// themed components
+// Themed components
 import ThemedView from "../../components/ThemedView";
 import ThemedText from "../../components/ThemedText";
 import {Link} from "expo-router";
 import ThemedButton from "../../components/ThemedButton";
 import Spacer from "../../components/spacer";
-
-// Themed components
 import ThemedTextInput from "../../components/ThemedTextInput";
+// end
 
 const login = () => {
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
-    const handleSubmit = () => {
-        console.log('login form submitted', email, password)
+    const { login } = useUser()
+
+    const handleSubmit = async () => {
+        setError('')
+
+        try {
+            await login(email, password)
+        } catch (error) {
+            // @ts-ignore
+            setError(error.message)
+        }
     }
 
     return (
@@ -48,6 +57,9 @@ const login = () => {
             </ThemedButton>
 
             <Spacer />
+            {error && <ThemedText style={styles.error}>{error}</ThemedText>}
+
+            <Spacer />
 
             <Link href='/register'>
                 <ThemedText style={{textAlign: 'center', fontSize: 12}}>
@@ -72,4 +84,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
+    error: {
+        color: 'COLORS.warning',
+        padding: 10,
+        backgroundColor: 'COLORS.errorBackground',
+        borderColor: 'COLORS.errorBorder',
+        borderWidth: 1,
+        borderRadius: 5,
+        marginHorizontal: 10,
+    }
 })
