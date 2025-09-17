@@ -1,16 +1,31 @@
-import { StyleSheet, Pressable, Text} from "react-native";
+import { StyleSheet, Text} from "react-native";
+import { Link } from "expo-router";
+import {useState} from "react";
+import {useUser} from "../../hooks/userUser";
 
 // themed components
 import ThemedView from "../../components/ThemedView";
 import ThemedText from "../../components/ThemedText";
-import { Link } from "expo-router";
 import ThemedButton from "../../components/ThemedButton";
 import Spacer from "../../components/spacer";
+import ThemedTextInput from "../../components/ThemedTextInput";
 
-const register = () => {
+const Register = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
-    const handleSubmit = () => {
-        console.log('register form submitted')
+    const { user, register } = useUser()
+
+    const handleSubmit = async () => {
+
+        setError('')
+        try {
+            await register(email, password)
+        } catch (error) {
+            // @ts-ignore
+            setError(error.message)
+        }
     }
 
     return (
@@ -22,9 +37,26 @@ const register = () => {
 
             <Spacer />
 
+            <ThemedTextInput
+                placeholder='Email'
+                style={{width: '80%', marginBottom: 10}}
+                keyboardType="email-address"
+                onChangeText={setEmail}
+                value={email}
+            />
+            <ThemedTextInput
+                placeholder='Password'
+                style={{width: '80%', marginBottom: 10}}
+                onChangeText={setPassword}
+                value={password}
+            />
+
             <ThemedButton onPress={handleSubmit}>
                 <Text>Register</Text>
             </ThemedButton>
+
+            <Spacer />
+            {error && <ThemedText style={styles.error}>{error}</ThemedText>}
 
             <Spacer />
 
@@ -38,7 +70,7 @@ const register = () => {
     )
 }
 
-export default register
+export default Register
 
 const styles = StyleSheet.create({
     container: {
@@ -51,4 +83,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
+    error: {
+        color: 'COLORS.warning',
+        padding: 10,
+        backgroundColor: 'COLORS.errorBackground',
+        borderColor: 'COLORS.errorBorder',
+        borderWidth: 1,
+        borderRadius: 5,
+        marginHorizontal: 10,
+    }
 })
