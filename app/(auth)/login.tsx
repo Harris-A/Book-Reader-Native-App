@@ -1,4 +1,4 @@
-import {StyleSheet, Pressable, Text, TextInput} from "react-native";
+import {StyleSheet, Text} from "react-native";
 import { useState } from "react";
 import { useUser } from '../../hooks/userUser';
 
@@ -66,7 +66,6 @@ const login = () => {
                     Don't have an account? Register here.
                 </ThemedText>
             </Link>
-
         </ThemedView>
     )
 }
